@@ -1,19 +1,22 @@
-# Set up storage area for waves
+#!/bin/bash
+HERE=`pwd`
+
+echo "Settin up storage area for waves"
 mkdir ~/bats
 cd ~/bats
 mkdir out
 touch out/rec.log
 touch out/rec.err
 
-# Compile usbreset utility
-ln -s ~/biolyze-acoustic/scripts
+echo "Compiling usbreset utility"
+ln -s $HERE 
 cd scripts
 gcc -o usbreset usbreset.c
 
-# Configure sys startup with audio capture
+echo "Configuring sys startup with audio capture"
 cp .asoundrc ~/.asoundrc
-sudo cp interfaces /etc/network/interfaces
-sudo cp modules /etc/modules
-sudo cp rc.local /etc/rc.local
+sudo cp etc/interfaces /etc/network/interfaces
+sudo cp etc/modules /etc/modules
+sudo cp etc/rc.local /etc/rc.local
 
 
