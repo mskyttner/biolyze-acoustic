@@ -34,7 +34,7 @@ sudo apt-get update
 
 # Some software is required
 
-sudo apt-get install rpi-update git sox libsox2 libsox-fmt-all 
+sudo apt-get install rpi-update git screen sox libsox2 libsox-fmt-all 
 
 # Other software can be fetched
 sudo apt-get install ecasound r-base r-base-dev libfftw3-dev
@@ -79,14 +79,16 @@ cd biolyze-acoustic/scripts
 chmod +x install.sh
 ./install.sh
 
-# The install script contains this
-mkdir ~/bats
-cd ~/bats
-mkdir out
-ln -s ../c-j-d/biolyze-acoustic/scripts
-cd scripts
-gcc -o usbreset usbreset.c
-sudo cp rc.local /etc/rc.local
+# To check ongoing captures (exit with Ctrl-A + d)
+screen -rS rec
+
+# For command line client to IRC / XMPP etc
+sudo apt-get install irssi irssi-plugin-otr irssi-plugin-xmpp
+
+# Check disk space used by waves and remaining free disk space
+du -h -s /home/pi/bats/out/
+df -h
+
 
 
 

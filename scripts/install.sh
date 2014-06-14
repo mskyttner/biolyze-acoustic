@@ -10,8 +10,10 @@ ln -s ~/biolyze-acoustic/scripts
 cd scripts
 gcc -o usbreset usbreset.c
 
-# Install automatic capture on startup
+# Configure sys startup with audio capture
+cp .asoundrc ~/.asoundrc
+sudo cp interfaces /etc/network/interfaces
+sudo cp modules /etc/modules
 sudo cp rc.local /etc/rc.local
-
 
 
