@@ -1,0 +1,7 @@
+Make sure to turn off dhclient before changing to a static ip:
+
+http://www.debian-administration.org/articles/254
+
+As already mentioned, it is usually because dhclient is still running. I have had many a student get stuck in this loop by booting their machine with dhcp (thus dhclient starts) and then try to change the /etc/resolv.conf file. As also mentioned, dhclient rewrites this file at lease half-life when it renews. After my students realize what is happening, they change their /etc/network/interfaces file to use static information and restart networking. HOWEVER, when they restart the network, dhclient still isn't killed, because the init script sees that it is using a static address and doesn't know it needs to shutdown dhclient. If you were trying both dhcp and static settings, this could have been your problem. 
+
+ The proper way to change from dhcp to static, is to shutdown networking with "/etc/inti.d/networking stop" (or "ifdown eth0"), make your changes in /etc/network/interfaces from dhcp to static, and then bring back up the network with "/etc/init.d/networking start" (or "ifup eth0"). And it sure doesn't hurt to do a "ps aux | grep dhclient" before you make the change to make sure dhclient is really dead.

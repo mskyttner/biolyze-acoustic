@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export AUDIODRIVER=alsa
-export AUDIODEV=hw:1,0
+#./settings.sh
+#export AUDIODRIVER=alsa
+#export AUDIODEV=hw:1,0
 
 trap ctrl_c INT
 

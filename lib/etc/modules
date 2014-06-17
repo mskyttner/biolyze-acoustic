@@ -5,4 +5,8 @@
 # Parameters can be specified after the module name.
 
 snd-bcm2835
+snd-usb-audio
 snd-aloop
+
+usbserial vendor=0x12d1 product=0x14db
+

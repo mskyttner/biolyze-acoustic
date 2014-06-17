@@ -1,0 +1,15 @@
+#defaults.ctl.card 0
+#defaults.pcm.card 0
+#defaults.timer.card 0
+
+pcm.!default {
+  type asym
+  playback.pcm {
+    type plug
+    slave.pcm "hw:0,0"
+  }
+  capture.pcm {
+    type plug
+    slave.pcm "hw:1,0"
+  } 
+ }

@@ -12,7 +12,7 @@ sudo rpi-update
 
 
 echo "Installing optional software"
-sudo apt-get install ecasound r-base r-base-dev libfftw3-dev
+sudo apt-get install ecasound r-base r-base-dev libfftw3-dev dnsmasq
 
 # For command line client to IRC / XMPP etc
 sudo apt-get install irssi irssi-plugin-otr irssi-plugin-xmpp
