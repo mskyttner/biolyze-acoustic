@@ -12,6 +12,7 @@ gcc -o usbreset usbreset.c
 
 # Configure sys startup with audio capture
 cp .asoundrc ~/.asoundrc
+cd etc
 sudo cp interfaces /etc/network/interfaces
 sudo cp modules /etc/modules
 sudo cp rc.local /etc/rc.local
