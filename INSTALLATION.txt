@@ -89,6 +89,19 @@ sudo apt-get install irssi irssi-plugin-otr irssi-plugin-xmpp
 du -h -s /home/pi/bats/out/
 df -h
 
+# Add journaling and sync to filesystem ext4 for SD card
+
+tune2fs -O +has_journal /dev/sdbX
+
+tune4fs -O "+has_journal" /dev/sdbX
+
+sudo nano /etc/fstab
+# add mount options to SD card
+# source: http://serverfault.com/questions/356507/safe-ext4-configuration-for-systems-running-unattended
+noatime,data=journal,sync
+
+e4fsck –f /dev/sdaX
+
 
 
 
